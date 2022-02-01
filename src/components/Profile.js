@@ -10,7 +10,7 @@ const Profile = () => {
             <div>
                 <img src='https://memepedia.ru/wp-content/uploads/2022/01/virgo-cat-meme-1.jpg' width='200px'
                      height='200px'/>
-                avatar + description
+                avatar + description ПРОВЕРКА
             </div>
             <div>
                 My posts

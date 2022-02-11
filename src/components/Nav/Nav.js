@@ -3,7 +3,7 @@ import s from "./Nav.module.css";
 
 const Nav = () => {
     return(
-        <nav className={s.nav}>
+        <nav>
             <div className={s.item}>
                 <a>Profile</a>
             </div>

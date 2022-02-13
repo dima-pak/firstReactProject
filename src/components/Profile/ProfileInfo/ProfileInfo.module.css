@@ -1,0 +1,25 @@
+.blockProfileInfo {
+
+}
+
+.blockProfileInfo .blockAvatarAndDescription {
+    display: grid;
+    grid-template-columns: 3fr 10fr;
+}
+
+.avatar {
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.avatar img {
+    border: solid 2px #FF6A00;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.description {
+    padding-left: 10px;
+    padding-top: 20px;
+}

@@ -1,7 +1,9 @@
 .item {
     color:#00A08A;
+    text-decoration: none;
 }
 
-.item.active {
-    color:white;
+.item a.active {
+    color: red;
+    text-decoration: none;
 }

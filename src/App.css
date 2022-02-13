@@ -20,6 +20,7 @@
 .app-wrapperNav {
     grid-area: nav;
     background-color: #FF8F40;
+    padding: 20px;
 }
 
 .app-wrapperHeader {

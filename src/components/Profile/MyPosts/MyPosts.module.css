@@ -1,0 +1,26 @@
+.blockMyPosts {
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.start {
+    font-size: 150%;
+}
+
+.addComment {
+    padding-top: 10px;
+    display: grid;
+    grid-template-rows: 2fr;
+}
+
+.addComment button {
+    margin-top: 8px;
+    margin-left: 70%;
+    margin-right: auto;
+    width: 10%;
+}
+
+.addComment textarea {
+    width: 80%;
+    height: 50px;
+}

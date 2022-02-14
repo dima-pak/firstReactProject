@@ -2,7 +2,10 @@ import React from "react";
 import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+    let postsElements = props.posts.posts.map((p) => (<Post message={p.message} like={p.like}/>))
+
     return (
         <div className={s.blockMyPosts}>
             <div className={s.start}>My posts</div>
@@ -11,8 +14,7 @@ const MyPosts = () => {
                 <button>Add post</button>
             </div>
             <div>
-                <Post message='Hi, how are you?' like={5}/>
-                <Post message={`It's my first post`} like={19}/>
+                {postsElements}
             </div>
         </div>
     )

@@ -30,9 +30,11 @@
 .messages {
     padding: 20px;
     background-color: aqua;
-    color: darkblue;
 }
 
 .messages .message {
-
+    margin-top: 10px;
+    color: white;
+    background-color: cornflowerblue;
+    border: solid 1px black;
 }

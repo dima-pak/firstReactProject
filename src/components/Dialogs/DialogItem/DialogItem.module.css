@@ -1,0 +1,31 @@
+.dialog {
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+
+    background-color: #A64500;
+    border-radius: 10px;
+    border: solid 2px white;
+
+    padding: 5px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.dialog img {
+    border: solid 2px white;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+.dialog .navLink {
+    text-decoration: none;
+    font-size: 150%;
+    color:#FFAD73;
+
+    padding-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}

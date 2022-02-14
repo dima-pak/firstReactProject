@@ -1,9 +1,9 @@
 .item {
-    color:#00A08A;
+    color:#806540;
     text-decoration: none;
 }
 
 .item a.active {
-    color: red;
+    color: #4D2C00;
     text-decoration: none;
 }

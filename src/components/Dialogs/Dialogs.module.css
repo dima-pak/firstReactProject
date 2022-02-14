@@ -1,40 +1,13 @@
 .dialogs {
     display: grid;
     grid-template-columns: 3fr 9fr;
-    gap: 6px;
+    gap: 2px;
 }
 
 .dialogsItems {
     padding: 20px;
-    background-color: pink;
-    color: darkblue;
-}
-
-.dialogsItems .dialog {
-    background-color: red;
-    border-radius: 8px;
-    border: solid black 1px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    text-align: center;
-}
-
-.dialog .navLink {
-    text-decoration: none;
-    color: white;
 }
 
 .messages {
     padding: 20px;
-    background-color: aqua;
-}
-
-.messages .message {
-    margin-top: 10px;
-    color: white;
-    background-color: cornflowerblue;
-    border: solid 1px black;
 }

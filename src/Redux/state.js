@@ -14,11 +14,11 @@ let state = {
             {id: 3, name: "valera"}
         ],
         messages: [
-            {message: "hello"},
-            {message: "you NIGGER?"},
-            {message: "honk honk"},
-            {message: "hi nigger"},
-            {message: "AAAAAAAAAAAAAA"}
+            {message: "hello", senderActive: true},
+            {message: "you NIGGER?", senderActive: false},
+            {message: "honk honk", senderActive: true},
+            {message: "hi nigger", senderActive: false},
+            {message: "AAAAAAAAAAAAAA", senderActive: true}
         ]
     },
 

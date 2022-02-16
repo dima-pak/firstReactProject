@@ -1,3 +1,5 @@
+import {renderEntireThree} from "../Render/render";
+
 let state = {
     profile: {
         posts: [
@@ -22,5 +24,15 @@ let state = {
         ]
     },
 
+}
+
+export let addPost = (message) => {
+
+    let post = {
+        message: message,
+        like: 0
+    }
+    state.profile.posts.push(post);
+    renderEntireThree(state);
 }
 export default state;

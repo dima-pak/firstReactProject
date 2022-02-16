@@ -11,3 +11,22 @@
 .messages {
     padding: 20px;
 }
+
+.messages .blockAddMessage {
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    gap: 2px;
+
+    margin-top: 10px;
+
+    padding: 10px;
+    background-color: #FF8F40;
+}
+
+.blockAddMessage button {
+    background-color: #A64500;
+}
+
+.blockAddMessage textarea {
+    background-color: #5DD0C0;
+}

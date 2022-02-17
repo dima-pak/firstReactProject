@@ -1,7 +1,8 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
+import profile from "../Profile";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
     return (
         <div className={s.blockProfileInfo}>
             <div>
@@ -14,7 +15,10 @@ const ProfileInfo = () => {
                     <img src='https://memepedia.ru/wp-content/uploads/2022/01/virgo-cat-meme-1.jpg'/>
                 </div>
                 <div className={s.description}>
-                    не понял ты быканул
+                    <div>Имя: {props.informationAboutUser.firstName}</div>
+                    <div>Фамилия: {props.informationAboutUser.surname}</div>
+                    <div>Возраст: {props.informationAboutUser.age}</div>
+                    <div>О себе: {props.informationAboutUser.aboutMe}</div>
                 </div>
             </div>
         </div>

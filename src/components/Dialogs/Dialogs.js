@@ -14,7 +14,12 @@ const Dialogs = (props) => {
 
     let addMessage = () => {
         let text = newTextFromMessage.current.value;
-        alert(text);
+        props.addMessage();
+    }
+
+    let changeTextMessage = () => {
+        let text = newTextFromMessage.current.value;
+        props.changeTextAreaMessage(text);
     }
 
     return (<div className={s.dialogs}>
@@ -24,7 +29,7 @@ const Dialogs = (props) => {
         <div className={s.messages}>
             {messagesElement}
             <div className={s.blockAddMessage}>
-                <textarea ref={newTextFromMessage}>Введите текст</textarea>
+                <textarea ref={newTextFromMessage} onChange={changeTextMessage} value={props.dialogsElement.textAreaMessage}>Введите текст</textarea>
                 <button onClick={addMessage}>Add message</button>
             </div>
         </div>

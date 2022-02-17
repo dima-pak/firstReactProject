@@ -9,16 +9,19 @@ const MyPosts = (props) => {
     let textTextArea = React.createRef();
 
     let addPost = () => {
+        props.addPost();
+    }
+
+    let changeTextArea = () => {
         let text = textTextArea.current.value;
-        props.addPost(text);
-        textTextArea.current.value = "";
+        props.changeTextArea(text);
     }
 
     return (
         <div className={s.blockMyPosts}>
             <div className={s.start}>My posts</div>
             <div className={s.addComment}>
-                <textarea ref={textTextArea}></textarea>
+                <textarea ref={textTextArea} value={props.newTextArea} onChange={changeTextArea}/>
                 <button onClick={ addPost }>Add post</button>
             </div>
             <div>

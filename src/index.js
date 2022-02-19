@@ -8,10 +8,7 @@ import App from "./App";
 
 export let renderEntireThree = (state) => {
     ReactDOM.render(<App state={state}
-                         addPost={store.addPost.bind(store)}
-                         changeTextArea={store.changeTextArea.bind(store)}
-                         addMessage={store.addMessage.bind(store)}
-                         changeTextAreaMessage={store.changeTextAreaMessage.bind(store)}/>,
+                         dispatch={store.dispatch.bind(store)}/>,
         document.getElementById('root'));
 }
 

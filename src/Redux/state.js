@@ -1,3 +1,6 @@
+import profileReducer from "./profileReducer";
+import dialogsElementReducer from "./dialogsElementReducer";
+
 let store = {
     _renderEntireThree() {
     },
@@ -34,7 +37,7 @@ let store = {
             ],
 
             textAreaMessage: "enter text"
-        },
+        }
 
     },
 
@@ -52,54 +55,15 @@ let store = {
         this._renderEntireThree(this._state);
     },
 
-    // addPost() {
-    //     let post = {
-    //         message: this._state.profile.newTextArea,
-    //         like: 0
-    //     }
-    //     this._state.profile.posts.push(post);
-    //     this.changeTextArea("");
-    // },
-
-    // addMessage() {
-    //     let message = {
-    //         message: this._state.dialogsElement.textAreaMessage,
-    //         senderActive: false
-    //     };
-    //     this._state.dialogsElement.messages.push(message);
-    //     this.changeTextAreaMessage("");
-    // },
-
     updateRender(render) {
         this._renderEntireThree = render;
     },
 
     dispatch(action) {
-        if (action.type === "ADD-POST") {
-            let post = {
-                message: this._state.profile.newTextArea,
-                like: 0
-            }
-            this._state.profile.posts.push(post);
-            this.changeTextArea("");
-        } else if (action.type === "ADD-MESSAGE") {
-            let message = {
-                message: this._state.dialogsElement.textAreaMessage,
-                senderActive: false
-            };
-            this._state.dialogsElement.messages.push(message);
-            this.changeTextAreaMessage("");
-        }
-        else if (action.type === "CHANGE-TEXT-AREA")
-        {
-            this._state.profile.newTextArea = action.message;
-            this._renderEntireThree(this._state);
-        }
-        else if (action.type === "CHANGE-TEXT-AREA-MESSAGE")
-        {
-            this._state.dialogsElement.textAreaMessage = action.message;
-            this._renderEntireThree(this._state);
-        }
+        store._state.profile = profileReducer(store._state.profile, action);
+        store._state.dialogsElement = dialogsElementReducer(store._state.dialogsElement, action);
+
+        this._renderEntireThree(this._state);
     }
 }
 

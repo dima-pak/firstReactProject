@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-
+import {addMessageActionCreate, changeTextMessageActionCreate} from "../../Redux/dialogsElementReducer";
 
 const Dialogs = (props) => {
 
@@ -10,14 +10,12 @@ const Dialogs = (props) => {
     let messagesElement = props.dialogsElement.messages.map((m) => (
         <Message message={m.message} senderActive={m.senderActive}/>))
 
-    let newTextFromMessage = React.createRef();
-
     let addMessage = () => {
-        props.dispatch({type: "ADD-MESSAGE"});
+        props.dispatch(addMessageActionCreate());
     }
 
-    let changeTextMessage = () => {
-        props.dispatch({type: "CHANGE-TEXT-AREA-MESSAGE", message: newTextFromMessage.current.value});
+    let changeTextMessage = (event) => {
+        props.dispatch(changeTextMessageActionCreate(event.target.value));
     }
 
     return (<div className={s.dialogs}>
@@ -27,7 +25,9 @@ const Dialogs = (props) => {
         <div className={s.messages}>
             {messagesElement}
             <div className={s.blockAddMessage}>
-                <textarea ref={newTextFromMessage} onChange={changeTextMessage} value={props.dialogsElement.textAreaMessage}>Введите текст</textarea>
+                <textarea onChange={changeTextMessage}
+                          value={props.dialogsElement.textAreaMessage}
+                          placeholder="Ведите сообщение"/>
                 <button onClick={addMessage}>Add message</button>
             </div>
         </div>

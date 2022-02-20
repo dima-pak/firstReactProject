@@ -10,7 +10,7 @@ let store = {
                 firstName: "cacke",
                 surname: "yciha",
                 age: "21",
-                aboutMe: "hehe nigger"
+                aboutMe: "^_^ SIMP SIMP SIMP"
             },
 
             posts: [

@@ -1,9 +1,13 @@
 .item {
-    color:#806540;
+    color:white;
     text-decoration: none;
+    font-size: 150%;
+    font-family: "Microsoft Yi Baiti";
 }
 
 .item a.active {
-    color: #4D2C00;
+    color: #87ebf4;
     text-decoration: none;
+    font-size: 140%;
+    font-family: "Microsoft Yi Baiti";
 }

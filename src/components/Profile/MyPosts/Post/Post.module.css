@@ -1,16 +1,21 @@
 .item {
     margin-top: 10px;
-    height: 100px;
+    margin-right: 10px;
+
+    height: 104px;
 
     display: grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: 104px auto;
+
+    border: solid 1px white;
+    border-radius: 5px;
 }
 
 .item img {
+    padding: 2px;
     width: 100px;
     height: 100px;
     border-radius: 50px;
-
 }
 
 .message {

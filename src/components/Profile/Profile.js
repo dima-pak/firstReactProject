@@ -5,7 +5,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
 
-    return (<div>
+    return (<div className={s.backProfile}>
         <ProfileInfo informationAboutUser={props.profile.informationAboutUser}/>
         <MyPosts posts={props.profile} newTextArea={props.profile.newTextArea} dispatch={props.dispatch}/>
     </div>)

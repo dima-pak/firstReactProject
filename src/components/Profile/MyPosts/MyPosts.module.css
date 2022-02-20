@@ -8,19 +8,36 @@
 }
 
 .addComment {
-    padding-top: 10px;
+    padding-top: 8px;
     display: grid;
-    grid-template-rows: 2fr;
+    grid-template-columns: 12fr 4fr;
 }
 
 .addComment button {
-    margin-top: 8px;
-    margin-left: 70%;
-    margin-right: auto;
-    width: 10%;
+    font-family: "Leto Text Sans Defect";
+    font-size: 120%;
+    color: white;
+    background-color: #f1ac17;
+
+    border-radius: 5px;
+    border: solid 1px white;
+
+    margin: 5px 10px 5px 5px;
+}
+
+button:active {
+    border: solid 2px green;
+    transform: translateY(4px);
 }
 
 .addComment textarea {
-    width: 80%;
-    height: 50px;
+    font-family: "Leto Text Sans Defect";
+    font-size: 110%;
+    border: solid 1px white;
+    color: white;
+    background-color: #33d0d0;
+
+    outline: none;
+    -moz-appearance: none;
+    resize: none;
 }

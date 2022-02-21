@@ -7,8 +7,8 @@ let store = {
     _state: {
         profile: {
             informationAboutUser: {
-                firstName: "cacke",
-                surname: "yciha",
+                firstName: "chmona",
+                surname: "usec",
                 age: "21",
                 aboutMe: "^_^ SIMP SIMP SIMP"
             },

@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    width: 0;
+}
+
 @font-face {
     font-family: "Leto Text Sans Defect";
     font-style: normal;
@@ -8,7 +12,6 @@
 
 .app-wrapper {
     display: grid;
-
 
     width: 1200px;
 

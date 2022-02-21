@@ -1,7 +1,24 @@
 const ADD_MESSAGE = "ADD-MESSAGE";
 const CHANGE_TEXT_AREA_MESSAGE = "CHANGE-TEXT-AREA-MESSAGE";
 
-const dialogsElementReducer = (state, action) => {
+let initialState = {
+    dialogs: [
+        {id: 1, name: "dima"},
+        {id: 2, name: "andruxa"},
+        {id: 3, name: "valera"}
+    ],
+    messages: [
+        {message: "hello", senderActive: true},
+        {message: "you NIGGER?", senderActive: false},
+        {message: "honk honk", senderActive: true},
+        {message: "hi nigger", senderActive: false},
+        {message: "AAAAAAAAAAAAAA", senderActive: true}
+    ],
+
+    textAreaMessage: "enter text"
+};
+
+const dialogsElementReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
             let message = {

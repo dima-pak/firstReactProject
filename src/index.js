@@ -8,8 +8,7 @@ import App from "./App";
 
 
 export let renderEntireThree = (state) => {
-    ReactDOM.render(<App state={state}
-                         dispatch={store.dispatch.bind(store)}/>,
+    ReactDOM.render(<App store={store} state={state} dispatch={store.dispatch.bind(store) }/>,
         document.getElementById('root'));
 }
 

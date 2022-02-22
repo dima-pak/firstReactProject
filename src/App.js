@@ -9,7 +9,7 @@ import Settings from "./Settings/Settings";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const App = (props) => {
+const App = () => {
 
     return (<BrowserRouter>
             <div className="app-wrapper">

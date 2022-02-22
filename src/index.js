@@ -1,23 +1,22 @@
 import React from 'react';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-//import store from "./Redux/store";
 import store from "./Redux/redux-store"
 import ReactDOM from "react-dom";
 import App from "./App";
+import {Provider} from "react-redux";
 
 
-export let renderEntireThree = (state) => {
-    ReactDOM.render(<App store={store} state={state} dispatch={store.dispatch.bind(store) }/>,
+//export let renderEntireThree = (state) => {
+    ReactDOM.render(
+        <Provider store={store}>
+            <App/>
+        </Provider>,
         document.getElementById('root'));
-}
+//}
 
-renderEntireThree(store.getState());
+//renderEntireThree(store.getState());
 
-store.subscribe(() => {
-    let state = store.getState();
-    renderEntireThree(state);
-});
 //store.updateRender(renderEntireThree);
 
 // If you want to start measuring performance in your app, pass a function

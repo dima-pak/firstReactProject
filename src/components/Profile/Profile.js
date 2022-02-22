@@ -6,8 +6,8 @@ import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 const Profile = (props) => {
 
     return (<div className={s.backProfile}>
-        <ProfileInfoContainer store={props.store}/>
-        <MyPostsContainer store={props.store} dispatch={props.dispatch}/>
+        <ProfileInfoContainer/>
+        <MyPostsContainer />
     </div>)
 }
 

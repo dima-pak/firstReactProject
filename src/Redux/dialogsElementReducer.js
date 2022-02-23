@@ -8,11 +8,11 @@ let initialState = {
         {id: 3, name: "valera"}
     ],
     messages: [
-        {message: "hello", senderActive: true},
-        {message: "you NIGGER?", senderActive: false},
-        {message: "honk honk", senderActive: true},
-        {message: "hi nigger", senderActive: false},
-        {message: "AAAAAAAAAAAAAA", senderActive: true}
+        {id: 1, message: "hello", senderActive: true},
+        {id: 2, message: "you NIGGER?", senderActive: false},
+        {id: 3, message: "honk honk", senderActive: true},
+        {id: 4, message: "hi nigger", senderActive: false},
+        {id: 5,message: "AAAAAAAAAAAAAA", senderActive: true}
     ],
 
     textAreaMessage: "enter text"
@@ -21,21 +21,17 @@ let initialState = {
 const dialogsElementReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE: {
-            let message = {
-                message: state.textAreaMessage,
-                senderActive: false
-            };
-
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages];
-            stateCopy.messages.push(message);
-            stateCopy.textAreaMessage = "";
-            return stateCopy;
+            return {
+                ...state,
+                messages: [...state.messages, {id: 6,message: state.textAreaMessage, senderActive: false}],
+                textAreaMessage: ""
+            }
         }
         case CHANGE_TEXT_AREA_MESSAGE: {
-            let stateCopy = {...state};
-            stateCopy.textAreaMessage = action.message;
-            return stateCopy;
+            return {
+                ...state,
+                textAreaMessage: action.message
+            }
         }
         default:
             return state;

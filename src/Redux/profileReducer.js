@@ -10,10 +10,10 @@ let initialState = {
     },
 
     posts: [
-        {message: "Hi, how are you?", like: 5},
-        {message: "It's my first post+_+", like: 21},
-        {message: "NIGGER", like: 999999},
-        {message: "^_^ he-he nigger", like: 152}
+        {id: 1, message: "Hi, how are you?", like: 5},
+        {id: 2, message: "It's my first post+_+", like: 21},
+        {id: 3, message: "NIGGER", like: 999999},
+        {id: 4, message: "^_^ he-he nigger", like: 152}
     ],
 
     newTextArea: "enter text"
@@ -21,23 +21,18 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:{
-
-            let newPost = {
-                message: state.newTextArea,
-                like: 0
-            };
-
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.push(newPost);
-            stateCopy.newTextArea = "";
-            return stateCopy;
+        case ADD_POST: {
+            return {
+                ...state,
+                posts: [...state.posts, {id: 5,message: state.newTextArea, like: 0}],
+                newTextArea: ""
+            }
         }
         case CHANGE_TEXT_AREA: {
-            let stateCopy = {...state};
-            stateCopy.newTextArea = action.message;
-            return stateCopy;
+            return {
+                ...state,
+                newTextArea: action.message
+            }
         }
         default:
             return state;

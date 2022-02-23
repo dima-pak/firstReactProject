@@ -1,0 +1,53 @@
+.mainBlock {
+    margin: 10px;
+    display: grid;
+
+    grid-template-columns: 2fr 10fr;
+}
+
+.mainBlock button {
+    font-family: "Leto Text Sans Defect";
+    font-size: 120%;
+    color: white;
+    background-color: #f1ac17;
+
+    border-radius: 5px;
+    border: solid 1px white;
+}
+
+.leftBlock {
+    display: grid;
+    grid-template-rows: 6fr 3fr;
+}
+
+.rightBlock {
+    margin: 5px;
+    border: solid 1px white;
+    border-radius: 5px;
+}
+
+.rightBlock .name {
+    text-align: left;
+}
+
+.rightBlock .status {
+    text-align: left;
+}
+
+.rightBlock .country {
+    text-align: right;
+}
+
+.rightBlock .city {
+    text-align: right;
+}
+
+.image {
+    margin-right: auto;
+    margin-left: auto;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50px;
+}

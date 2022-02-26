@@ -10,7 +10,7 @@ const User = (props) => {
                 {props.followed ? <button onClick={() => {
                     props.follow(props.id)
                 }}>Follow</button> : <button onClick={() => {
-                    props.unfollow(props.id)
+                    props.unFollow(props.id)
                 }}>Unfollow</button>}
             </div>
             <div className={s.rightBlock}>

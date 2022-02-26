@@ -20,10 +20,9 @@ const Users = (props) => {
             </div>
             {
                 props.users.map(u => <User key={u.id} id={u.id} followed={u.followed}
-                                           follow={props.follow} unfollow={props.unfollow}
+                                           follow={props.follow} unFollow={props.unFollow}
                                            fullName={u.fullName} status={u.status} location={u.location}/>)
             }
-            <button onClick={props.getUsers}>Add users</button>
         </div>
     )
 }

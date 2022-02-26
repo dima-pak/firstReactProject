@@ -1,4 +1,28 @@
+.mainBlock {
+}
+
+.mainBlock button{
+    font-family: "Leto Text Sans Defect";
+    font-size: 120%;
+    color: white;
+    background-color: #f1ac17;
+
+    border-radius: 5px;
+    border: solid 1px white;
+}
+
 .image {
     width: 80px;
     height: 80px;
 }
+
+.targetPage {
+    font-size: 140%;
+    color: #f1ac17;
+}
+
+.mainBlock .numberingPage {
+    font-size: 130%;
+    text-align: center;
+}
+

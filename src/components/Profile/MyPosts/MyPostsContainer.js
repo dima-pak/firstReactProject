@@ -3,6 +3,17 @@ import {addPostActionCreator, changeTextAreaActionCreator} from "../../../Redux/
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
+class MyPostsContainerAPI extends React.Component {
+
+    render() {
+        return <MyPosts posts={this.props.posts}
+                        newTextArea={this.props.newTextArea}
+                        addPost={this.props.addPostActionCreator}
+                        changeTextArea={this.props.changeTextAreaActionCreator}
+        />
+    }
+}
+
 let mapStateToProps = (state) => {
     return {
         posts: state.profile.posts,
@@ -10,17 +21,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addPost: () => {
-            dispatch(addPostActionCreator())
-        },
-        changeTextArea: (body) => {
-            dispatch(changeTextAreaActionCreator(body))
-        }
-    }
-}
-
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+const MyPostsContainer = connect(mapStateToProps, {
+    addPostActionCreator,
+    changeTextAreaActionCreator
+})(MyPostsContainerAPI);
 
 export default MyPostsContainer;

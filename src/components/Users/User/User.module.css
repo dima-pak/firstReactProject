@@ -51,3 +51,8 @@
 
     border-radius: 50px;
 }
+
+.navBlock {
+    margin-right: auto;
+    margin-left: auto;
+}

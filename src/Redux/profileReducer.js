@@ -5,7 +5,7 @@ let initialState = {
     informationAboutUser: {
         firstName: "chmona",
         surname: "usec",
-        age: "21",
+        age: "23",
         aboutMe: "^_^ SIMP SIMP SIMP"
     },
 

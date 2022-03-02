@@ -2,17 +2,18 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import {follow, reloadComponent, setCurrentPage, setUsers, unFollow} from "../../Redux/usersReducer";
 import React from "react";
-import axios from "axios";
 import Reloader from "../common/Reloader/Reloader";
+import {getUsers, getUsers2} from "../../Api/Api";
 
 class UsersContainerAPI extends React.Component {
     componentDidMount() {
         this.props.reloadComponent(true);
-        axios.get('https://react-first-project-6571f-default-rtdb.firebaseio.com/users.json?orderBy="id"&limitToFirst=5&print=pretty').then(response => {
+
+        getUsers().then(response => {
             this.props.reloadComponent(false);
             console.log(response);
 
-            const data = response.data;
+            const data = response;
 
             const newUsers = [];
 
@@ -31,25 +32,27 @@ class UsersContainerAPI extends React.Component {
     changeCurrentPage = (pageNumber) => {
         this.props.reloadComponent(true);
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://react-first-project-6571f-default-rtdb.firebaseio.com/users.json?orderBy="id"&startAt=${(pageNumber*this.props.pageSize)-4}&endAt=${pageNumber*this.props.pageSize}&print=pretty`).then(response => {
-            this.props.reloadComponent(false);
+
+        getUsers2(pageNumber, this.props.pageSize)
+            .then(response => {
+
+                this.props.reloadComponent(false);
+
+                const data = response;
+
+                const newUsers = [];
+
+                for (let key in data) {
+                    const newUser = data[key];
+                    newUsers.push(newUser)
+                }
+
+                console.log(response.data);
+                console.log(newUsers);
 
 
-            const data = response.data;
-
-            const newUsers = [];
-
-            for (let key in data) {
-                const newUser = data[key];
-                newUsers.push(newUser)
-            }
-
-            console.log(response.data);
-            console.log(newUsers);
-
-
-            this.props.setUsers(newUsers);
-        })
+                this.props.setUsers(newUsers);
+            })
     }
 
 
@@ -80,28 +83,9 @@ let mapStateToProps = (state) => {
     }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId));
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unFollowAC(userId));
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users));
-//         },
-//         changeCurrentPage: (newCurrentPage) => {
-//             dispatch(setCurrentPageAC(newCurrentPage));
-//         },
-//         reloadComponent: (isReload) => {
-//             dispatch(reloadComponentAC(isReload));
-//         }
-//     }
-// }
-
 const UsersContainer = connect(mapStateToProps, {
     follow, unFollow, setUsers,
-    setCurrentPage, reloadComponent})(UsersContainerAPI);
+    setCurrentPage, reloadComponent
+})(UsersContainerAPI);
 
 export default UsersContainer;

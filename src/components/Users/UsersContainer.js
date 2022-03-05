@@ -1,60 +1,65 @@
 import {connect} from "react-redux";
 import Users from "./Users";
-import {follow, reloadComponent, setCurrentPage, setUsers, unFollow} from "../../Redux/usersReducer";
+import {follow, reloadComponent, setCurrentPage, setUsers, unFollow, getUsers, getUsers2} from "../../Redux/usersReducer";
 import React from "react";
 import Reloader from "../common/Reloader/Reloader";
-import {getUsers, getUsers2} from "../../Api/Api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
+// import {getUsers2} from "../../Api/Api";
 
 class UsersContainerAPI extends React.Component {
     componentDidMount() {
-        this.props.reloadComponent(true);
+        // this.props.reloadComponent(true);
+        //
+        // getUsers().then(response => {
+        //     this.props.reloadComponent(false);
+        //     console.log(response);
+        //
+        //     const data = response;
+        //
+        //     const newUsers = [];
+        //
+        //     for (let key in data) {
+        //         const newUser = data[key];
+        //         newUsers.push(newUser)
+        //     }
+        //
+        //     console.log(newUsers);
+        //
+        //     this.props.setUsers(newUsers);
+        // })
 
-        getUsers().then(response => {
-            this.props.reloadComponent(false);
-            console.log(response);
-
-            const data = response;
-
-            const newUsers = [];
-
-            for (let key in data) {
-                const newUser = data[key];
-                newUsers.push(newUser)
-            }
-
-            console.log(newUsers);
-
-            this.props.setUsers(newUsers);
-        })
-
+        this.props.getUsers();
     }
 
     changeCurrentPage = (pageNumber) => {
-        this.props.reloadComponent(true);
-        this.props.setCurrentPage(pageNumber);
+        // this.props.reloadComponent(true);
+        // this.props.setCurrentPage(pageNumber);
+        //
+        // getUsers2(pageNumber, this.props.pageSize)
+        //     .then(response => {
+        //
+        //         this.props.reloadComponent(false);
+        //
+        //         const data = response;
+        //
+        //         const newUsers = [];
+        //
+        //         for (let key in data) {
+        //             const newUser = data[key];
+        //             newUsers.push(newUser)
+        //         }
+        //
+        //         console.log(response.data);
+        //         console.log(newUsers);
+        //
+        //
+        //         this.props.setUsers(newUsers);
+        //     })
 
-        getUsers2(pageNumber, this.props.pageSize)
-            .then(response => {
+        this.props.getUsers2(pageNumber, this.props.pageSize);
 
-                this.props.reloadComponent(false);
-
-                const data = response;
-
-                const newUsers = [];
-
-                for (let key in data) {
-                    const newUser = data[key];
-                    newUsers.push(newUser)
-                }
-
-                console.log(response.data);
-                console.log(newUsers);
-
-
-                this.props.setUsers(newUsers);
-            })
     }
-
 
     render() {
         return <>
@@ -72,7 +77,6 @@ class UsersContainerAPI extends React.Component {
     }
 }
 
-
 let mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
@@ -83,9 +87,24 @@ let mapStateToProps = (state) => {
     }
 }
 
-const UsersContainer = connect(mapStateToProps, {
-    follow, unFollow, setUsers,
-    setCurrentPage, reloadComponent
-})(UsersContainerAPI);
+// let AuthRedirectComponent = withAuthRedirect(UsersContainerAPI)
+//
+// const UsersContainer = connect(mapStateToProps, {
+//     follow, unFollow, setUsers,
+//     setCurrentPage, reloadComponent, getUsers,
+//     getUsers2
+// })(AuthRedirectComponent);
+//
+// export default UsersContainer;
 
-export default UsersContainer;
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {
+        follow, unFollow, setUsers,
+        setCurrentPage, reloadComponent, getUsers,
+        getUsers2
+    })
+)(UsersContainerAPI)
+
+
+

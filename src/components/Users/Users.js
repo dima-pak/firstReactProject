@@ -1,6 +1,7 @@
 import React from "react"
 import s from "./Users.module.css";
 import User from "./User/User";
+import {Redirect} from "react-router-dom";
 
 const Users = (props) => {
 
@@ -10,6 +11,8 @@ const Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
+
+    // return <Redirect to={"/music"}/>;
 
     return (
         <div className={s.mainBlock}>

@@ -1,4 +1,4 @@
-import users from "../components/Users/Users";
+import {usersAPI} from "../Api/Api";
 
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
@@ -69,5 +69,57 @@ export let setUsers = (users) => ({type: SET_USERS, users});
 export let setCurrentPage = (newCurrentPage) => ({type: SET_CURRENT_PAGE, newCurrentPage});
 
 export let reloadComponent = (isReload) => ({type: RELOAD_COMPONENT, isReload});
+
+export let getUsers = () => {
+    return (dispatch) => {
+        dispatch(reloadComponent(true));
+
+        usersAPI.getUsers().then(response => {
+            dispatch(reloadComponent(false));
+            console.log(response);
+
+            const data = response;
+
+            const newUsers = [];
+
+            for (let key in data) {
+                const newUser = data[key];
+                newUsers.push(newUser)
+            }
+
+            console.log(newUsers);
+
+            dispatch(setUsers(newUsers));
+        })
+    }
+}
+
+export let getUsers2 = (pageNumber, pageSize) => {
+    return (dispatch) => {
+        dispatch(reloadComponent(true));
+        dispatch(setCurrentPage(pageNumber));
+
+        usersAPI.getUsers2(pageNumber, pageSize)
+            .then(response => {
+
+                dispatch(reloadComponent(false));
+
+                const data = response;
+
+                const newUsers = [];
+
+                for (let key in data) {
+                    const newUser = data[key];
+                    newUsers.push(newUser)
+                }
+
+                console.log(response.data);
+                console.log(newUsers);
+
+
+                dispatch(setUsers(newUsers));
+            })
+    }
+}
 
 export default usersReducer;

@@ -15,16 +15,20 @@ const Users = (props) => {
     // return <Redirect to={"/music"}/>;
 
     return (
+
         <div className={s.mainBlock}>
             <div className={s.numberingPage}>
 
-                {pages.map(p => <span className={props.currentPage === p && s.targetPage} onClick={(event) => {props.changeCurrentPage(p)}}> {p} </span>)}
+                {pages.map(p => <span className={props.currentPage === p && s.targetPage} onClick={(event) => {
+                    props.changeCurrentPage(p, props.users[props.users.length-1].id)
+                }}> {p} </span>)}
 
             </div>
             {
                 props.users.map(u => <User key={u.id} id={u.id} followed={u.followed}
                                            follow={props.follow} unFollow={props.unFollow}
-                                           fullName={u.fullName} status={u.status} location={u.location}/>)
+                                           fullName={u.fullName} status={u.status} location={u.location}
+                                           image={u.image}/>)
             }
         </div>
     )

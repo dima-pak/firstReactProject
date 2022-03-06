@@ -8,7 +8,7 @@ const User = (props) => {
             <div className={s.leftBlock}>
                 <NavLink  to={`/profile/${props.id}`} className={s.navBlock}>
                 <img className={s.image}
-                     src="https://sun9-4.userapi.com/impg/u3fbgLqIJwuAr5pOYIGsyhuPgJ6zpe6D0fvhWg/7BpH-EEU4U8.jpg?size=1280x720&quality=96&sign=d45596348489949c78242492431c41f1&type=album"/>
+                     src={props.image}/>
                 </NavLink>
                 {props.followed ? <button onClick={() => {
                     props.follow(props.id)
@@ -29,6 +29,7 @@ const User = (props) => {
                 <div className={s.city}>
                     {props.location.city}
                 </div>
+
             </div>
         </div>
     );

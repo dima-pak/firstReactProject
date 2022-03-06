@@ -4,8 +4,8 @@ import logo from "../../image/Logo.gif"
 
 const Header = () => {
     return (<header>
-            <img className={s.img}
-                src={logo}/>
+            {/*<img className={s.img}*/}
+            {/*    src={logo}/>*/}
         </header>)
 }
 

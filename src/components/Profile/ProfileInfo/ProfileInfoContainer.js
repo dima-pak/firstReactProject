@@ -7,7 +7,6 @@ import axios from "axios";
 class ProfileInfoContainerAPI extends React.Component {
 
     componentDidMount() {
-        debugger;
         console.log(this.props);
         let userId = this.props.match.params.userId;
 

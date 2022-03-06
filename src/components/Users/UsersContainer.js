@@ -5,9 +5,9 @@ import React from "react";
 import Reloader from "../common/Reloader/Reloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
-// import {getUsers2} from "../../Api/Api";
 
 class UsersContainerAPI extends React.Component {
+
     componentDidMount() {
         // this.props.reloadComponent(true);
         //
@@ -32,7 +32,7 @@ class UsersContainerAPI extends React.Component {
         this.props.getUsers();
     }
 
-    changeCurrentPage = (pageNumber) => {
+    changeCurrentPage = (pageNumber, idLastUsers) => {
         // this.props.reloadComponent(true);
         // this.props.setCurrentPage(pageNumber);
         //
@@ -57,7 +57,7 @@ class UsersContainerAPI extends React.Component {
         //         this.props.setUsers(newUsers);
         //     })
 
-        this.props.getUsers2(pageNumber, this.props.pageSize);
+        this.props.getUsers2(pageNumber, idLastUsers);
 
     }
 

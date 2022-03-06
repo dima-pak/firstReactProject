@@ -43,7 +43,8 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: action.users
+                users: action.users,
+                //totalUsersCount: action.users.length
             }
         case SET_CURRENT_PAGE:
             return {
@@ -83,8 +84,10 @@ export let getUsers = () => {
             const newUsers = [];
 
             for (let key in data) {
-                const newUser = data[key];
-                newUsers.push(newUser)
+                if (data[key]) {
+                    const newUser = data[key];
+                    newUsers.push(newUser)
+                }
             }
 
             console.log(newUsers);
@@ -94,14 +97,16 @@ export let getUsers = () => {
     }
 }
 
-export let getUsers2 = (pageNumber, pageSize) => {
+export let getUsers2 = (pageNumber,idLastUsers) => {
     return (dispatch) => {
+
+        debugger;
         dispatch(reloadComponent(true));
         dispatch(setCurrentPage(pageNumber));
 
-        usersAPI.getUsers2(pageNumber, pageSize)
+        usersAPI.getUsers2(idLastUsers)
             .then(response => {
-
+                debugger
                 dispatch(reloadComponent(false));
 
                 const data = response;
@@ -109,8 +114,10 @@ export let getUsers2 = (pageNumber, pageSize) => {
                 const newUsers = [];
 
                 for (let key in data) {
-                    const newUser = data[key];
-                    newUsers.push(newUser)
+                    if (data[key]) {
+                        const newUser = data[key];
+                        newUsers.push(newUser)
+                    }
                 }
 
                 console.log(response.data);
